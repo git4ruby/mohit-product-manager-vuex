@@ -7,7 +7,7 @@
           class="m-3"
           :border-variant="product.inventoryStatus? 'success':'danger'"
           align="center"
-          v-for="product in products" :key="product.id"
+          v-for="product in productList" :key="product.id"
         >
           <b-badge class="mb-3" :variant="product.inventoryStatus? 'success':'danger'">{{ product.inventoryStatus? 'IN STOCK':'OUT OF STOCK' }}</b-badge>
           <b-card-text><strong>Name: </strong>{{ product.name }}</b-card-text>
@@ -24,7 +24,7 @@
           </b-row>
         </b-card>
       </b-card-group>
-      <h2 v-if="products.length < 1">No Products Found!</h2>
+      <h2 v-if="productList.length < 1">No Products Found!</h2>
     </b-card>
   </b-col>
 </template>
@@ -35,7 +35,6 @@ import UpdateProduct from '@/components/UpdateProduct'
 export default {
   data() {
     return {
-      products:[]
     }
   },
   components: {
@@ -46,6 +45,12 @@ export default {
     // },
     // updateProduct(updatedProduct){
     // }
+  },
+  computed: {
+    productList() {
+      console.log('******', this.$store.state.productList)
+      return this.$store.state.productList
+    }
   }
 }
 </script>
