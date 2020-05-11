@@ -30,12 +30,14 @@
           </b-form-group>
         </b-form>
       </b-card-body>
-      <b-button block variant="primary" @click="addProduct">Add Product</b-button>
+      <b-button block variant="primary" @click="add">Add Product</b-button>
     </b-card>
   </b-col>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   data(){
     return {
@@ -49,17 +51,24 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['addProduct']),
     /* eslint-disable-no-console */
-    async addProduct(){
+    async add(){
       this.submitted = true
       let result = await this.$validator.validate()
       if(result){
-        this.$store.dispatch('addProduct', {
+        this.addProduct({
           name: this.form.name,
           price: '$' + this.form.price,
           brand: this.form.brand,
           inventoryStatus: this.form.inventoryStatus === 'true'
         })
+        // this.$store.dispatch('addProduct', {
+        //   name: this.form.name,
+        //   price: '$' + this.form.price,
+        //   brand: this.form.brand,
+        //   inventoryStatus: this.form.inventoryStatus === 'true'
+        // })
         this.form = {
           name: '',
           price: '',

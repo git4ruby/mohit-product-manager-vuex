@@ -2,7 +2,7 @@
   "products": [
     {
       "name": "Casual Shoe",
-      "price": "$10",
+      "price": "$1000",
       "brand": "Nike",
       "inventoryStatus": false,
       "id": 2
@@ -13,6 +13,13 @@
       "brand": "Levis",
       "inventoryStatus": true,
       "id": 3
+    },
+    {
+      "name": "Aviators",
+      "price": "$1000",
+      "brand": "Oakley",
+      "inventoryStatus": true,
+      "id": 4
     }
   ]
 }

@@ -76,16 +76,15 @@ export default {
       console.log(result)
       console.log('Model Submitted')
       if(result){
-        // this.$emit('updateProduct', {
-        //   name: this.form.name,
-        //   price: '$' + this.form.price,
-        //   brand: this.form.brand,
-        //   inventoryStatus: this.form.inventoryStatus === 'true',
-        //   id: this.$props.product.id
-        // })
+        this.$store.dispatch('updateProduct', {
+          name: this.form.name,
+          price: '$' + this.form.price,
+          brand: this.form.brand,
+          inventoryStatus: this.form.inventoryStatus === 'true',
+          id: this.$props.product.id
+        })
         this.modalShow = false
         this.submitted = false
-
       }
     }
   }

@@ -25,5 +25,12 @@ export default {
       throw new Error(error)
     }
   },
-
+  updateProduct: async ({commit}, payload) => {
+    try {
+      let result = await axios.put(`http://localhost:3000/products/${payload.id}`, payload)
+      commit('UPDATE_PRODUCT', result.data)
+    } catch (error) {
+      throw new Error(error)
+    }
+  }
 }

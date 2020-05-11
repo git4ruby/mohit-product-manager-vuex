@@ -19,7 +19,7 @@
               <b-button variant="danger" @click="deleteProduct(product.id)"><i class="fas fa-trash"></i></b-button>
             </b-col>
             <b-col>
-              <UpdateProduct :product="product" @updateProduct="updateProduct"/>
+              <UpdateProduct :product="product" />
             </b-col>
           </b-row>
         </b-card>
@@ -45,8 +45,6 @@ export default {
   methods: {
     deleteProduct(productId){
       this.$store.dispatch('deleteProduct', productId)
-    },
-    updateProduct(updatedProduct){
     }
   },
   computed: {
