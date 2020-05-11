@@ -26,4 +26,9 @@ a{
 .error-message{
   color: crimson;
 }
+.page-loader{
+  top: 45%;
+  left: 45%;
+  position: absolute;
+}
 </style>

@@ -24,7 +24,8 @@
           </b-row>
         </b-card>
       </b-card-group>
-      <h2 v-if="productList.length < 1">No Products Found!</h2>
+      <h2 v-if="productList.length < 1 && !showPageLoader">No Products Found!</h2>
+      <b-spinner variant="secondary" label="Spinning" class="page-loader" v-if="showPageLoader"></b-spinner>
     </b-card>
   </b-col>
 </template>
@@ -37,6 +38,7 @@ import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
+      showPageLoader: false
     }
   },
   components: {
@@ -55,8 +57,16 @@ export default {
       return this.$store.getters.productList
     }
   },
-  mounted() {
-    this.$store.dispatch('setProducts')
+  async mounted() {
+    try {
+      this.showPageLoader = true
+      await this.$store.dispatch('setProducts')
+      this.showPageLoader = false
+    } catch(error) {
+      console.log(error)
+      this.showPageLoader = false
+    }
+   
   }
 }
 </script>

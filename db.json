@@ -20,6 +20,20 @@
       "brand": "Oakley",
       "inventoryStatus": true,
       "id": 4
+    },
+    {
+      "name": "Protein Shake",
+      "price": "$10",
+      "brand": "Muscle Power",
+      "inventoryStatus": true,
+      "id": 5
+    },
+    {
+      "name": "iPhone 11 prox max",
+      "price": "$1500",
+      "brand": "Apple",
+      "inventoryStatus": false,
+      "id": 6
     }
   ]
 }

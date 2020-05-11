@@ -30,13 +30,16 @@
           </b-form-group>
         </b-form>
       </b-card-body>
-      <b-button block variant="primary" @click="add">Add Product</b-button>
+      <b-button block variant="primary" @click="add">
+        Add Product
+        <b-spinner small variant="light" label="Spinning" v-if="showAddProductSpinner"></b-spinner>
+      </b-button>
     </b-card>
   </b-col>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+// import { mapActions } from 'vuex'
 
 export default {
   data(){
@@ -47,38 +50,40 @@ export default {
         brand: '',
         inventoryStatus: ''
       },
-      submitted: false
+      submitted: false,
+      showAddProductSpinner: false
     }
   },
   methods: {
-    ...mapActions(['addProduct']),
+    // ...mapActions(['addProduct']),
     /* eslint-disable-no-console */
     async add(){
-      this.submitted = true
-      let result = await this.$validator.validate()
-      if(result){
-        this.addProduct({
-          name: this.form.name,
-          price: '$' + this.form.price,
-          brand: this.form.brand,
-          inventoryStatus: this.form.inventoryStatus === 'true'
-        })
-        // this.$store.dispatch('addProduct', {
-        //   name: this.form.name,
-        //   price: '$' + this.form.price,
-        //   brand: this.form.brand,
-        //   inventoryStatus: this.form.inventoryStatus === 'true'
-        // })
-        this.form = {
-          name: '',
-          price: '',
-          brand: '',
-          inventoryStatus: ''
+      try {
+        this.submitted = true
+        let result = await this.$validator.validate()
+        if(result){
+          this.showAddProductSpinner = true
+          await this.$store.dispatch('addProduct', {
+            name: this.form.name,
+            price: '$' + this.form.price,
+            brand: this.form.brand,
+            inventoryStatus: this.form.inventoryStatus === 'true'
+          })
+          this.showAddProductSpinner = false
+          this.form = {
+            name: '',
+            price: '',
+            brand: '',
+            inventoryStatus: ''
+          }
+          this.submitted = false
         }
-        this.submitted = false
+        console.log(result)
+        console.log(this.form)
+      } catch (error) {
+        console.log(error)
+        this.showAddProductSpinner = false
       }
-      console.log(result)
-      console.log(this.form)
     }
   }
 
