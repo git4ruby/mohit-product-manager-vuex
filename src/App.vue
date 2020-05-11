@@ -23,4 +23,7 @@ a{
   text-decoration: none !important;
   color: #ffffff !important;
 }
+.error-message{
+  color: crimson;
+}
 </style>

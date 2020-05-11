@@ -54,12 +54,12 @@ export default {
       this.submitted = true
       let result = await this.$validator.validate()
       if(result){
-        // this.$emit('addProduct', {
-        //   name: this.form.name,
-        //   price: '$' + this.form.price,
-        //   brand: this.form.brand,
-        //   inventoryStatus: this.form.inventoryStatus === 'true'
-        // })
+        this.$store.dispatch('addProduct', {
+          name: this.form.name,
+          price: '$' + this.form.price,
+          brand: this.form.brand,
+          inventoryStatus: this.form.inventoryStatus === 'true'
+        })
         this.form = {
           name: '',
           price: '',

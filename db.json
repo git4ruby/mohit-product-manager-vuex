@@ -20,6 +20,13 @@
       "brand": "Microsoft",
       "inventoryStatus": false,
       "id": 4
+    },
+    {
+      "name": "Aviators",
+      "price": "$500",
+      "brand": "Oakley",
+      "inventoryStatus": true,
+      "id": 5
     }
   ]
 }
