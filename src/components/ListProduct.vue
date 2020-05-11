@@ -31,6 +31,7 @@
 
 <script>
 import UpdateProduct from '@/components/UpdateProduct'
+import { mapState } from 'vuex'
 
 export default {
   data() {
@@ -47,6 +48,11 @@ export default {
     // }
   },
   computed: {
+    // ...mapState({
+    //   testList: 'productList'
+    // })
+
+    // ...mapState(['productList'])
     productList() {
       console.log('******', this.$store.state.productList)
       return this.$store.state.productList
