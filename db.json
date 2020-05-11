@@ -48,6 +48,13 @@
       "brand": "Stay Fit",
       "inventoryStatus": true,
       "id": 8
+    },
+    {
+      "name": "Redbull",
+      "price": "$5",
+      "brand": "Pepsi",
+      "inventoryStatus": true,
+      "id": 9
     }
   ]
 }

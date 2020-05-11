@@ -39,11 +39,9 @@
 </template>
 
 <script>
-// import { mapActions } from 'vuex'
-import myMixin from '@/mixins/myMixin'
+import { mapActions } from 'vuex'
 
 export default {
-  mixins: [myMixin],
   data(){
     return {
       form: {
