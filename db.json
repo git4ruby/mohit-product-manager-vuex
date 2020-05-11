@@ -34,6 +34,20 @@
       "brand": "Apple",
       "inventoryStatus": false,
       "id": 6
+    },
+    {
+      "name": "Treadmill",
+      "price": "$2000",
+      "brand": "Stay Fit",
+      "inventoryStatus": false,
+      "id": 7
+    },
+    {
+      "name": "10 KD Dumbell",
+      "price": "$25",
+      "brand": "Stay Fit",
+      "inventoryStatus": true,
+      "id": 8
     }
   ]
 }

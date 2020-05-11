@@ -40,8 +40,10 @@
 
 <script>
 // import { mapActions } from 'vuex'
+import myMixin from '@/mixins/myMixin'
 
 export default {
+  mixins: [myMixin],
   data(){
     return {
       form: {
@@ -70,6 +72,7 @@ export default {
             inventoryStatus: this.form.inventoryStatus === 'true'
           })
           this.showAddProductSpinner = false
+          this.showToast('Product added successfully','SUCCESS')
           this.form = {
             name: '',
             price: '',
@@ -83,6 +86,7 @@ export default {
       } catch (error) {
         console.log(error)
         this.showAddProductSpinner = false
+        this.showToast(error.message,'ERROR')
       }
     }
   }
