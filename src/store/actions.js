@@ -1,9 +1,11 @@
 import axios from 'axios'
 
+const BASE_URL = process.env.VUE_APP_BASE_URL
+
 export default {
-  setProducts: async ({commit},payload) => {
+  setProducts: async ({commit}) => {
     try {
-      let result = await axios.get('http://localhost:3000/products')
+      let result = await axios.get(`${BASE_URL}/products`)
       commit('SET_PRODUCTS', result.data)
     } catch (error) {
       throw new Error(error)
@@ -11,7 +13,7 @@ export default {
   },
   addProduct: async ({commit}, payload) => {
     try {
-      let result = await axios.post('http://localhost:3000/products', payload)
+      let result = await axios.post(`${BASE_URL}/products`, payload)
       commit('ADD_PRODUCT', result.data)
     } catch (error) {
       throw new Error(error)
@@ -19,7 +21,7 @@ export default {
   },
   deleteProduct: async ({commit}, payload) => {
     try {
-      await axios.delete(`http://localhost:3000/products/${payload}`)
+      await axios.delete(`${BASE_URL}/products/${payload}`)
       commit('DELETE_PRODUCT', payload)
     } catch (error) {
       throw new Error(error)
@@ -27,7 +29,7 @@ export default {
   },
   updateProduct: async ({commit}, payload) => {
     try {
-      let result = await axios.put(`http://localhost:3000/products/${payload.id}`, payload)
+      let result = await axios.put(`${BASE_URL}/products/${payload.id}`, payload)
       commit('UPDATE_PRODUCT', result.data)
     } catch (error) {
       throw new Error(error)

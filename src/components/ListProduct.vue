@@ -32,8 +32,8 @@
 
 <script>
 import UpdateProduct from '@/components/UpdateProduct'
-import { mapState } from 'vuex'
-import { mapGetters } from 'vuex'
+// import { mapState } from 'vuex'
+// import { mapGetters } from 'vuex'
 
 export default {
   data() {

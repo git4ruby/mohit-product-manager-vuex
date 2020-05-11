@@ -1,5 +1,5 @@
 export default {
-  productList: (state,getters) => {
+  productList: (state) => {
     return state.productList.filter(product => product)
   }
 }
