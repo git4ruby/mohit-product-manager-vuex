@@ -49,18 +49,15 @@ export default {
     // }
   },
   computed: {
-    // ...mapState({
-    //   testList: 'productList'
-    // })
-
     // ...mapState(['productList'])
-    ...mapGetters(['productList'])
-    // productList() {
-    //   console.log('******', this.$store.state.productList)
-    //   return this.$store.state.productList
-    //   console.log('******', this.$store.getters.productList)
-    //   return this.$store.getters.productList
-    // }
+    // ...mapGetters(['productList'])
+    productList() {
+      console.log('******', this.$store.getters.productList)
+      return this.$store.getters.productList
+    }
+  },
+  mounted() {
+    this.$store.dispatch('setProducts')
   }
 }
 </script>
