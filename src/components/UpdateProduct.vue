@@ -69,22 +69,28 @@ export default {
       this.form = {}
     },
     async handleSubmit(bvModalEvt){
-      // Prevent modal from closing
-      bvModalEvt.preventDefault()
-      this.submitted = true
-      let result = await this.$validator.validate()
-      console.log(result)
-      console.log('Model Submitted')
-      if(result){
-        this.$store.dispatch('updateProduct', {
-          name: this.form.name,
-          price: '$' + this.form.price,
-          brand: this.form.brand,
-          inventoryStatus: this.form.inventoryStatus === 'true',
-          id: this.$props.product.id
-        })
-        this.modalShow = false
-        this.submitted = false
+      try {
+        // Prevent modal from closing
+        bvModalEvt.preventDefault()
+        this.submitted = true
+        let result = await this.$validator.validate()
+        console.log(result)
+        console.log('Model Submitted')
+        if(result){
+          await this.$store.dispatch('updateProduct', {
+            name: this.form.name,
+            price: '$' + this.form.price,
+            brand: this.form.brand,
+            inventoryStatus: this.form.inventoryStatus === 'true',
+            id: this.$props.product.id
+          })
+          this.showToast('Product updated successfully','SUCCESS')
+          this.modalShow = false
+          this.submitted = false
+        }
+      } catch(error) {
+        console.log(error)
+        this.showToast(error.message,'ERROR')
       }
     }
   }
