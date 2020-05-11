@@ -3,7 +3,7 @@
     <b-card header="List Product">
       <b-card-group deck>
         <b-card
-          style="min-width: 50%"
+          style="min-width: 30%; max-width: 30%"
           class="m-3"
           :border-variant="product.inventoryStatus? 'success':'danger'"
           align="center"
@@ -43,10 +43,11 @@ export default {
     UpdateProduct
   },
   methods: {
-    // deleteProduct(productId){
-    // },
-    // updateProduct(updatedProduct){
-    // }
+    deleteProduct(productId){
+      this.$store.dispatch('deleteProduct', productId)
+    },
+    updateProduct(updatedProduct){
+    }
   },
   computed: {
     // ...mapState(['productList'])

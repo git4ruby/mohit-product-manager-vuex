@@ -13,20 +13,6 @@
       "brand": "Levis",
       "inventoryStatus": true,
       "id": 3
-    },
-    {
-      "name": "Xbox S",
-      "price": "$399",
-      "brand": "Microsoft",
-      "inventoryStatus": false,
-      "id": 4
-    },
-    {
-      "name": "Aviators",
-      "price": "$500",
-      "brand": "Oakley",
-      "inventoryStatus": true,
-      "id": 5
     }
   ]
 }
